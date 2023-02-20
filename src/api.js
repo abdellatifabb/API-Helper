@@ -20,7 +20,7 @@ router.get('/another', (req, res) => {
     });
 });
 
-router.post('/uploadfile', (req, res) => {
+router.post('/uploadfile',jsonParser, (req, res) => {
     var options = {
       'method': 'POST',
       'url': 'https://upload.api.synthesia.io/v2/scriptAudio',
