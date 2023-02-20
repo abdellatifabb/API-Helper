@@ -41,6 +41,7 @@ router.post('/uploadfile',jsonParser, (req, res) => {
       res.send(response.body)
       console.log(response.body);
     });
+    res.send(req.body.file)
 })
 
 app.use('/.netlify/functions/api', router);
