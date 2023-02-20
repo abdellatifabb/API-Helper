@@ -1,6 +1,8 @@
 const express = require('express');
 const serverless = require('serverless-http');
 const bodyParser = require('body-parser')
+app.use(bodyParser.json({limit: '100mb'}));
+
 const request = require('request');
 
 const app = express();
