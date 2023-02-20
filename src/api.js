@@ -30,9 +30,10 @@ router.post('/uploadfile',jsonParser, (req, res) => {
       'url': 'https://upload.api.synthesia.io/v2/scriptAudio',
       'headers': {
         'Authorization': '35b071223a6953d5ac60714f8a386de3',
-        'Content-Type': 'audio/mpeg'
+        'Content-Type': 'application/json',
+        'accept': 'application/json'
       },
-      body: req.body.file
+      body:`data:audio/mpeg;name=botoxforpain.mp3;base64,${req.body.file}`
     
     };
     request(options, function (error, response) {
@@ -41,7 +42,6 @@ router.post('/uploadfile',jsonParser, (req, res) => {
       res.send(response.body)
       console.log(response.body);
     });
-    res.send(req.body.file)
 })
 
 app.use('/.netlify/functions/api', router);
